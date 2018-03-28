@@ -24,9 +24,8 @@ Github  : http://github.com/Cvar1984
 Team    : BlackHole Security
 Version : 1.0 ( Alpha )
 Date    : 17-03-2018\n";
-echo "$red=========================== Cvar1984 ))=====(@)>$green\n";
-$string="AbcABCabc";
-for($x=0;$x<10;$x++) {
+echo $red."=========================== Cvar1984 ))=====(@)>".$green."\n";
+$string=str_shuffle("abcdAbcdABCD");
 	$array=["1","2","3","4","5","6","7","8","9","0"];
 	$random=array_rand($array);
 	$rand=$array[$random];
@@ -34,13 +33,11 @@ for($x=0;$x<10;$x++) {
 	$b=$rand;
 	$c=$rand;
 	$d=$rand;
-	$e=$rand;
-	$g=$a*$b*$c*$d*$e.$string.$a.$b.$c.$d.$e;
-	$out=md5(sha1(gzdeflate(base64_encode(gzdeflate($g)))));
-}
+	$e=$a*$b*$c*$d;
+	$f=$string.$e.$string;
+	$out=md5(sha1($f));
 echo $green.$out."\n";
-$tulis=fopen("pass.txt", "w+");
+$tulis=fopen("pass.txt", "w");
 fwrite($tulis,$out);
 fclose($tulis);
 die($red."Password Generated".$blue." -> ".$green."pass.txt"."\n");
-?>
